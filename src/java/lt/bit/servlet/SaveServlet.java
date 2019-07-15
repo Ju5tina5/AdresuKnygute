@@ -39,31 +39,30 @@ public class SaveServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NullPointerException {
-        
-          String ids = request.getParameter("id");
-          String name = request.getParameter("fn");
-          String lastName = request.getParameter("ln");
-          String date = request.getParameter("dt");
-          String salary = request.getParameter("sl");
-          
-          try {
-          BigDecimal bg = new BigDecimal(salary);
-          SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-          Date dt = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-            if ( ids == null) {
-                Person p = new Person(name, lastName, dt, bg);
+
+        String ids = request.getParameter("id");
+        String name = request.getParameter("fn");
+        String lastName = request.getParameter("ln");
+        String date = request.getParameter("dt");
+        String salary = request.getParameter("sl");
+
+        try {
+            BigDecimal bg = new BigDecimal(salary);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date dt = sdf.parse(date);
+            Person p = new Person(name, lastName, dt, bg);
+            if (ids == null) {
                 DB.add(p);
-                } else {
-                       Person p = new Person(name, lastName, dt, bg);
-                       Integer id = Integer.valueOf(ids);
-                       p.setId(id);
-                       DB.update(p);
-                   }
-                }catch (Exception e) {
-            // ignored
+            } else {
+                Integer id = Integer.valueOf(ids);
+                p.setId(id);
+                DB.update(p);
             }
-          
-         response.sendRedirect("index.jsp");
+        } catch (Exception e) {
+            // ignored
+        }
+
+        response.sendRedirect("index.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

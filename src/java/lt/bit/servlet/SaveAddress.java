@@ -51,12 +51,18 @@ public class SaveAddress extends HttpServlet {
              Integer id = Integer.valueOf(ids);
              Integer adr = Integer.valueOf(address);
             if ( "-1".equals(ids2)) {
-                Address a = new Address(adr, postal, city);
-                DB.addAddress(id, a);
-                } else {
-                       Address a = new Address(adr, postal, city);
-                       a.setId(id2);
-                       DB.updateAddress(a);
+                    if (city != null && !"".equals(city) && postal != null && !"".equals(postal) && address != null && !"".equals(address)) {
+                         Address a = new Address(adr, postal, city);
+                         DB.addAddress(id, a);
+                    }
+
+                } else { 
+                        if (city != null && !"".equals(city) && postal != null && !"".equals(postal) && address != null && !"".equals(address)) {
+                            Address a = new Address(adr, postal, city);
+                            a.setId(id2);
+                            DB.updateAddress(a);
+                        }
+                       
                    }
                 }catch (Exception e) {// ignored
             }
