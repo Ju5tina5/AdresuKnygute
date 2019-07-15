@@ -31,7 +31,7 @@
              }
              SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         %>
-        <form action="save">
+        <form action="save" border="1">
              <% if (ids != null) {
                 %>
                 <input name="id" type="hidden" value="<%=p.getId()%>">
