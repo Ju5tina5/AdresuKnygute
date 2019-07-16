@@ -15,14 +15,14 @@ public class Address {
     
     private static int nextId;
     private Integer id;
-    private Integer address;
+    private String address;
     private String postalCode;
     private String city;
 
     public Address() {
     }
 
-    public Address(Integer address, String postalCode, String city) {
+    public Address(String address, String postalCode, String city) {
         this.address = address;
         this.postalCode = postalCode;
         this.city = city;
@@ -36,11 +36,11 @@ public class Address {
         this.id = id;
     }
 
-    public Integer getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Integer address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 

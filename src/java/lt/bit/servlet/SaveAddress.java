@@ -49,16 +49,15 @@ public class SaveAddress extends HttpServlet {
          try {
              Integer id2 = Integer.valueOf(ids2);
              Integer id = Integer.valueOf(ids);
-             Integer adr = Integer.valueOf(address);
             if ( "-1".equals(ids2)) {
                     if (city != null && !"".equals(city) && postal != null && !"".equals(postal) && address != null && !"".equals(address)) {
-                         Address a = new Address(adr, postal, city);
+                         Address a = new Address(address, postal, city);
                          DB.addAddress(id, a);
                     }
 
                 } else { 
                         if (city != null && !"".equals(city) && postal != null && !"".equals(postal) && address != null && !"".equals(address)) {
-                            Address a = new Address(adr, postal, city);
+                            Address a = new Address(address, postal, city);
                             a.setId(id2);
                             DB.updateAddress(a);
                         }

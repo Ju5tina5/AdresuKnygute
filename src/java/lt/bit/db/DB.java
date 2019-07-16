@@ -18,9 +18,9 @@ public class DB {
         p = new Person("AntrasVardas", "AntraPavarde", new Date(), new BigDecimal("987.76"));
         add(p);
         
-        Address a = new Address(74, "LT-14208", "Vilnius");
+        Address a = new Address("Basanaviciaus g. 74", "LT-14208", "Vilnius");
         addAddress(0, a);
-        a = new Address(64, "LT-3254", "Kaunas");
+        a = new Address("Janinos g. 77", "LT-3254", "Kaunas");
         addAddress(1, a);
         
         Contact c = new Contact( "860808113", "TEL");
